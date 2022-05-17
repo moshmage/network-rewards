@@ -1,0 +1,7 @@
+event*.json
+distribution*.json
+point*.json
+pool.json
+oracles*.json
+
+node_modules/
