@@ -1,5 +1,6 @@
 import fs from 'fs';
 import {NETWORK_ADDRESS} from '../config.mjs';
+import {instantiateNetwork} from './instantiate-network.mjs';
 
 export async function getOraclers() {
   const network = await instantiateNetwork(NETWORK_ADDRESS);

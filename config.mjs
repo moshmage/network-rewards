@@ -6,7 +6,7 @@ export const POINT_PER_DIPUTE_TOKEN = .002;
 export const POINT_PER_CLOSED_ISSUE = .002;
 export const POINT_PER_PROPOSAL = .001;
 
-export const BLOCK_INCREMENTER = 500;
+export const BLOCK_INCREMENTER = 600;
 export const WEB3_HOST = 'wss://wss.moonriver.moonbeam.network';
 export const PRIVATE_KEY = '';
 
