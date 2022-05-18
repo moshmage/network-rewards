@@ -26,6 +26,13 @@ async function main() {
   await pointEvents();
   await sumPoints();
 
+  console.log(`Created\ndistributions.json\noracles.json\noracles-points.json\nevents.json\nevents-points.json\npool.json`);
+
 }
 
-main();
+main()
+  .then(_ => process.exit(0))
+  .catch(e => {
+    console.log(e);
+    process.exit(1)
+  });

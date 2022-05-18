@@ -14,6 +14,6 @@ export async function sumPoints() {
   
   delete mapped.totalPoints;
   fs.writeFileSync('distributions.json', JSON.stringify(mapped, null, 2), 'utf-8');
-  
-  console.log(mapped);
+
+  return true;
 }
