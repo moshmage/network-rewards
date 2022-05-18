@@ -14,7 +14,7 @@ export async function sumPoints() {
   for (const address of addresses) {
     const points = +((eventsPoints[address]?.totalPoints || 0) + (oraclesPoints[address]?.totalPoints || 0)).toFixed(8)
     if (points > 0)
-      mapped[address] = +((eventsPoints[address]?.totalPoints || 0) + (oraclesPoints[address]?.totalPoints || 0)).toFixed(8);
+      mapped[address] = points;
   }
 
   
