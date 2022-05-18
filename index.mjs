@@ -20,7 +20,7 @@ async function main() {
   // 27305326 = Kovan Testnet deploy block
   // 793246 = MOVR deploy block
 
-  await readEvents(793246, lastBlock, undefined, await instantiateNetwork(NETWORK_ADDRESS, connection));
+  await readEvents(EVENT_START_BLOCK, lastBlock, undefined, await instantiateNetwork(NETWORK_ADDRESS, connection));
   await getOraclers();
   await pointOracles();
   await pointEvents();
