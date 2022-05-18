@@ -15,10 +15,6 @@ async function main() {
   connection.start();
 
   const lastBlock = await connection.eth.getBlockNumber();
-  
-  // 27940005 = Staging deploy block
-  // 27305326 = Kovan Testnet deploy block
-  // 793246 = MOVR deploy block
 
   await readEvents(EVENT_START_BLOCK, lastBlock, undefined, await instantiateNetwork(NETWORK_ADDRESS, connection));
   await getOraclers();
@@ -26,7 +22,7 @@ async function main() {
   await pointEvents();
   await sumPoints();
 
-  console.log(`Created\ndistributions.json\noracles.json\noracles-points.json\nevents.json\nevents-points.json\npool.json`);
+  console.log(`Finished, check distributions.json`);
 
 }
 

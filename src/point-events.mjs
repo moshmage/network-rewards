@@ -38,7 +38,7 @@ export async function pointEvents() {
 
   let totalEventsPoints = 0;
   Object.keys(mapped).forEach(owner => {
-    mapped[owner].totalPoints = (mapped[owner].totalPoints || 0) + Object.values(mapped[owner]).reduce((p, c) => p+c, 0);
+    mapped[owner].totalPoints = Object.values(mapped[owner]).reduce((p, c) => p+c, 0);
     totalEventsPoints += mapped[owner].totalPoints;
   });
 

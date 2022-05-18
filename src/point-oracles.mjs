@@ -25,10 +25,10 @@ export async function pointOracles() {
     console.log(`Parsing oracles for ${address} (${index+1}/${addressesPool.length})`);
 
     const oracles = oracleSummary[index] || await network.getOraclesSummary(address);
-    const delegations = new Set(oracles.amounts.filter((a, i) => oracles.addresses[i] != address));
-    const delegated = oracles.amounts.reduce((p, c, i) => p + oracles.addresses[i] != address ? fromBigNumber(c) : 0, 0);
-    const _tokensLocked = fromBigNumber(oracles.tokensLocked);
-    const unused = Math.abs(_tokensLocked - delegated);
+    const delegations = [...new Set(oracles.amounts.filter((a, i) => oracles.addresses[i] != address))];
+    const delegated = delegations.reduce((p, c) => p + c, 0);
+    const _tokensLocked = (oracles.tokensLocked);
+    const unused = _tokensLocked - delegated;
     
     _oracles.push(oracles);
 
@@ -43,7 +43,7 @@ export async function pointOracles() {
       ...mapped[address],
       ...points,
       info: {delegated, delegations, unused, isCouncil: unused >= council, locked: _tokensLocked},
-      totalPoints: points.locked + points.delegations + (points.delegated + unused >= council ? 0 : points.unused)
+      totalPoints: points.locked + points.delegations + points.unused + points.delegated
     }
 
     totalPoints += mapped[address].totalPoints;

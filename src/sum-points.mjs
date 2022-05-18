@@ -1,18 +1,20 @@
 import fs from 'fs';
 
 export async function sumPoints() {
+  console.log(`Summing points...`);
   const eventsPoints = JSON.parse(fs.readFileSync('events-points.json', 'utf-8'));
   const oraclesPoints = JSON.parse(fs.readFileSync('oracles-points.json', 'utf-8'));
-
-  [eventsPoints, oraclesPoints].forEach(o => delete o.totalPoints);
 
   const addresses = [...new Set([...Object.keys(oraclesPoints), ...Object.keys(eventsPoints)])];
   const totalDistribution = eventsPoints.totalPoints + oraclesPoints.totalPoints;
   
+  delete eventsPoints.totalPoints;
+  delete oraclesPoints.totalPoints;
+
   const mapped = {totalDistribution};
 
   for (const address of addresses) {
-    const points = +((eventsPoints[address]?.totalPoints || 0) + (oraclesPoints[address]?.totalPoints || 0)).toFixed(8)
+    const points = +((eventsPoints[address]?.totalPoints || 0) + (oraclesPoints[address]?.totalPoints || 0))
     if (points > 0)
       mapped[address] = points;
   }
