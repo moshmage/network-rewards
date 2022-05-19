@@ -4,4 +4,6 @@ point*.json
 pool.json
 oracles*.json
 
+*.csv
+
 node_modules/
