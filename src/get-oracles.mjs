@@ -12,9 +12,13 @@ export async function getOraclers() {
 
   for (let index = 0; !end; index++) {
     try {
+
       const address = await network.callTx(network.contract.methods.oraclersArray(index));
-      addresses.push(address);
-      console.log(`Added`, address);
+      if (!addresses.includes(address)) {
+        addresses.push(address);
+        console.log(`Added`, address);
+      }
+
     } catch (e) {
       end = true;
       console.log(`Error fetching address index ${index}`);

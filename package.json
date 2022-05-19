@@ -6,7 +6,7 @@
   "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "2csv": "json2csv -i events.json -o events.csv && json2csv -i events-points.json -o events-points.csv && json2csv -i oracles.json -o oracles-points.csv && json2csv -i distributions.json -o distributions.csv",
+    "2csv": "json2csv -i events.json -o events.csv && json2csv -i events-points.json -o events-points.csv && json2csv -i oracles.json -o oracles.csv && json2csv -i oracles-points.json -o oracles-points.csv && json2csv -i distributions.json -o distributions.csv",
     "start": "node index.mjs"
   },
   "author": "",
